@@ -1,0 +1,19 @@
+def binary_diagnostic(path):
+    
+    array = []
+    gamma_r = ''
+    epsilon_r = ''
+    
+    with open(path, 'r', encoding='UTF=8') as file:
+        for line in file:
+            array.append(line.replace('\n', ''))
+#    print(array)
+    for ind2 in range(0, len(array[0])):
+        tmp = [array[ind1][ind2] for ind1 in range(0, len(array))]
+        if tmp.count('0') > tmp.count('1'):
+            gamma_r += '0'
+            epsilon_r += '1'
+        else:
+            gamma_r += '1'
+            epsilon_r += '0'
+    return (int(gamma_r, 2) * int(epsilon_r, 2))
